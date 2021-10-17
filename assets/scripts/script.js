@@ -84,8 +84,6 @@ function saveTask(time, text) {
 
 // Populate timeblock display
 function populateTimeblocks() {
-  //Create row for each timeblock
-  // TODO: Dynamically populate these rows using data from local storage
   // Array in local storage, each element in array corresponds to a work hour
   // Elements in array will be objects with properties for text, time, etc.
   // Dynamically check the time against the current time. Assign state of timeblock accordingly
