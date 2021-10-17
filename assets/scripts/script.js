@@ -1,6 +1,14 @@
 // Save reference to important DOM elements
 var currentDateDisplayEl = $('#currentDay');
-var timeblockDisplayEl = $('#timeblocks');
+
+var timeblockText = [];
+
+$(".saveBtn").on("click", function(){
+    let time = $(this).attr("id");
+    let text = $(this).siblings(".description").val();
+    console.log(time);
+    console.log(text);
+})
 
 // Display current date
 function displayDate(){
@@ -12,30 +20,17 @@ function displayDate(){
 function populateTimeblocks(){
     //Create row for each timeblock
     // TODO: Dynamically populate these rows using data from local storage
-    var timeblockRowEl = $('<tr>').addClass('time-block row');
+    // Array in local storage, each element in array corresponds to a work hour
+    // Elements in array will be objects with properties for text, time, etc.
+    // Dynamically check the time against the current time. Assign state of timeblock accordingly
 
-    var hourTdEl = $('<td>').addClass('hour').text("9am");
 
-    var descriptionTdEL = $('<td>').addClass('description col-10');
-    var textareaTdEL = $('<textarea>');
-    descriptionTdEL.append(textareaTdEL);
-
-    var saveButtonTdEl = $('<td>');
-    var saveButtonEl = $('<button>').addClass('saveBtn').text("Save");
-    saveButtonTdEl.append(saveButtonEl);
-
-    timeblockRowEl.append(
-        hourTdEl,
-        descriptionTdEL,
-        saveButtonTdEl);
-
-    timeblockDisplayEl.append(timeblockRowEl);
 }
 
 // Initial function
 function init(){
     displayDate();
-    populateTimeblocks();
+    // populateTimeblocks();
 }
 
 init();
